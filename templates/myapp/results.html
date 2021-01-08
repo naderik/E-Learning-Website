@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+{% block myhdg %}Hello {{name}}!{% endblock %}
+{% block body_block %}
+
+        <h2>Search Results</h2>
+        {% if courselist %}
+        <ol>
+            {% for course  in courselist %}
+                <li> <b>Course Name: </b> {{ course.title}} {{ course.length}} ------- <b>Course Topic: </b>{{ course.topic }}
+                    ----------- <b> Price:</b> {{ course.price}} </li>
+            {% endfor %}
+        </ol>
+        {% else %}
+        <strong>There are no available topics!</strong>
+        {% endif %}
+{% endblock %}

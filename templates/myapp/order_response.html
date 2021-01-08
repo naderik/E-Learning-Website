@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+
+        <h2>Order is Done!</h2>
+        {% if courses %}
+            <h3>Courses: </h3>
+        <ol>
+            {% for course  in courses %}
+                <li> <b>Course Name: </b> {{ course.title}} </li>
+            {% endfor %}
+        </ol>
+        {% else %}
+        <strong>No courses selected!</strong>
+        {% endif %}
+{% endblock %}

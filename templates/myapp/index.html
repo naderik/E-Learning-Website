@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}
+    Hello {{student_name}}
+{% endblock %}
+
+{% block body_block %}
+        {% if message %}
+        <strong>{{ message }}</strong>
+        {% endif %}
+
+        {% if top_list %}
+        <h2>List of Topics</h2>
+        <ol>
+            {% for top  in top_list %}
+              <a href="{% url 'myapp:detail' top.pk %}"> <li> {{ top.name}} </li></a>
+            {% endfor %}
+        </ol>
+            <div>
+                <h3><a href = "{% url 'myapp:place_order' %}">Place an Order Now !</a></h3>
+                <p><a href = "{% url 'myapp:submit_review' %}">Submit a Review !</a></p>
+             </div>
+    {% else %}
+        <strong>There are no available topics!</strong>
+    {% endif %}
+{% endblock %}

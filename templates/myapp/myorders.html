@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}
+    Hello {{ user.first_name }}
+{% endblock %}
+
+{% block body_block %}
+    {% if msg %}
+        <p> {{ msg }}</p>
+    {% else %}
+        <p>
+            First Name: {{ user.first_name }}<br>
+            Last Name: {{ user.last_name }}<br>
+            {% if orders %}
+                <h3>Orders:</h3>
+                {% for order in orders %}
+                    Id: {{ order.id }}<br>
+                    Order date: {{ order.order_date }}<br>
+                    Order status:
+                    {% if order.order_status == 1 %}
+                        Confirmed
+                    {% elif order.order_status == 0 %}
+                        Cancelled
+                    {% elif order.order_status == 2 %}
+                        On Hold
+                    {% endif %}
+                    <br>
+                    Courses:
+                    {% for course in order.courses.all %}
+                        <li> {{ course.title }} </li>
+                    {% endfor %}
+                    <br>
+                {% endfor %}
+            {% else %}
+                <p>You have not placed any order yet!</p>
+            {% endif %}
+        </p>
+    {% endif %}
+{% endblock %}

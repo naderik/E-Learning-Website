@@ -1,0 +1,29 @@
+h1 {
+    background-color: lightblue;
+    color: blue;
+    font-size: 30px;
+    font-style: normal;
+    align-content: center;
+    text-align: center;
+    font-family: "Cooper Black";
+}
+
+.hbar1 {
+    display: inline;
+    margin: 15px;
+}
+
+body {
+    background-color:aliceblue;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

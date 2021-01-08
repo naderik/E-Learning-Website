@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}
+    Hello {{ user.first_name }}
+{% endblock %}
+
+{% block body_block %}
+    {% if msg %}
+        <p> {{ msg }}</p>
+    {% else %}
+        <p>
+            First Name: {{ user.first_name }}<br>
+            Last Name: {{ user.last_name }}<br>
+            <h3>Interested In:</h3>
+            {% for i in topic_list %}
+                {{ i }}<br>
+            {% endfor %}
+            <h3>Order List:</h3>
+            {% for stud in course_list %}
+                {{ stud }}<br>
+            {% endfor %}
+
+        </p>
+    {% endif %}
+{% endblock %}
